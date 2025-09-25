@@ -3,32 +3,23 @@
 
 <body>
   <main>
-    <div id="quotes" class="snap-container"></div>
+    <div id="quotes" class="snap-container">
+
+      <div class="snap-child flex items-center justify-center bg-gradient-to-br from-purple-600 to-blue-500 text-white text-2xl font-bold p-8">
+
+        <div>
+          <button type="button" onclick="loadQuotes('top')">up arrow</button>
+        </div>
+        <div id="quoteContainer">
+
+        </div>
+        <div>
+          <button type="button" onclick="loadQuotes('bottom')">down arrow</button>
+        </div>
+      </div>
+    </div>
 
   </main>
 
-  <script>
-    async function loadQuotes() {
-      const res = await fetch("/api/quotes");
-      const quotes = await res.json();
-      const container = document.getElementById("quotes");
-
-      const quoteDiv = document.createElement("div");
-      quoteDiv.id = quotes._id;
-      quoteDiv.className = "snap-child flex items-center justify-center bg-gradient-to-br from-purple-600 to-blue-500 text-white text-2xl font-bold p-8";
-      quoteDiv.textContent = '"' + quotes.quote + '"';
-
-      const authorDiv = document.createElement("div");
-      authorDiv.textContent = "- " + quotes.author + ", " + quotes.book;
-
-      // 4. Append the nested div to the parent div
-      quoteDiv.appendChild(authorDiv);
-
-      container.appendChild(quoteDiv);
-
-    }
-
-    loadQuotes();
-  </script>
-
+  <script src="/js/main.js"></script>
   <%- include('./includes/footer.ejs') %>

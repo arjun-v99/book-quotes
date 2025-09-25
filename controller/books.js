@@ -8,7 +8,6 @@ exports.getHome = (req, res, next) => {
 };
 
 exports.getQuoteApi = (req, res, next) => {
-  const RECITE_API_URL = process.env.RECITE_API_URL + "/random";
   axios
     .get("https://recite.onrender.com/api/v1/random")
     .then((result) => {
