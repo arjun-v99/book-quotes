@@ -9,7 +9,7 @@ exports.getHome = (req, res, next) => {
 
 exports.getQuoteApi = (req, res, next) => {
   axios
-    .get("https://recite.onrender.com/api/v1/random")
+    .get(process.env.RECITE_API_URL)
     .then((result) => {
       const quoteData = result.data;
 
